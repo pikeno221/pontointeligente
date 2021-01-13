@@ -23,12 +23,11 @@ internal class EmpresaClientTest {
 
     private val empresaNova = Empresa(ID_EMPRESA_NOVA, RAZAO_SOCIAL_NOVA, CNPJ_NOVA)
 
-
     @Mock
-    private lateinit var empresaRepository: EmpresaRepository
+    private val empresaRepository: EmpresaRepository? = null
 
     @InjectMocks
-    private lateinit var empresaClient: EmpresaClient
+    private val empresaClient: EmpresaClient? = null
 
     @BeforeEach
     fun init() {
@@ -38,10 +37,10 @@ internal class EmpresaClientTest {
     @Test
     fun deveRetornarNullCasoNaoEncontreEmpresaComCnpjNoBancoDeDados() {
 
-        Mockito.`when`(empresaRepository.findByCnpj(CNPJ))
+        Mockito.`when`(empresaRepository!!.findByCnpj(CNPJ))
                 .thenReturn(null)
 
-        val buscarPorCnpj = empresaClient.buscarPorCnpj(CNPJ)
+        val buscarPorCnpj = empresaClient!!.buscarPorCnpj(CNPJ)
 
         Assertions.assertNull(buscarPorCnpj)
 
@@ -51,10 +50,10 @@ internal class EmpresaClientTest {
     @Test
     fun deveRetornarEmpresaCasoSejaEncontradaPeloCnpj() {
 
-        Mockito.`when`(empresaRepository.findByCnpj(CNPJ))
+        Mockito.`when`(empresaRepository!!.findByCnpj(CNPJ))
                 .thenReturn(empresaDatabase)
 
-        val empresaPorCnpj = empresaClient.buscarPorCnpj(CNPJ)
+        val empresaPorCnpj = empresaClient!!.buscarPorCnpj(CNPJ)
 
         Assertions.assertNotNull(empresaPorCnpj)
 
@@ -68,10 +67,10 @@ internal class EmpresaClientTest {
 
 
 
-        Mockito.`when`(empresaRepository.save(Mockito.any()))
+        Mockito.`when`(empresaRepository!!.save(Mockito.any()))
                 .thenReturn(empresaNova)
 
-        val empresaPersistida = empresaClient.persistir(empresaNova)
+        val empresaPersistida = empresaClient!!.persistir(empresaNova)
 
         Assertions.assertEquals(empresaNova, empresaPersistida)
 
