@@ -11,5 +11,5 @@ class Lancamento(
         val tipo: Tipo,
         val funcionarioId: String,
         val descricao: String? = "",
-        val localizacao: String? = "",
+        val localizacao: String? = ""
 )

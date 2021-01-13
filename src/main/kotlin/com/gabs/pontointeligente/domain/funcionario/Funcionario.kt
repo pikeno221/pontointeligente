@@ -14,5 +14,5 @@ class Funcionario(
         val valorHora: Double? = 0.0,
         val qtdHorasTrabalhoDia: Float? = 0.0f,
         val qtdHorasAlmoco: Float? = 0.0f,
-        val qtdHorasPausa: Float? = 0.0f,
+        val qtdHorasPausa: Float? = 0.0f
 )
