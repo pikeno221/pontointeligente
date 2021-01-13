@@ -9,7 +9,7 @@ internal class SenhaUtilTest {
     private val SENHA = "123456"
     private val bCryptEncoder = BCryptPasswordEncoder()
 
-    
+
     @Test
     fun testGerarSenhaComHashBCrypty() {
 
